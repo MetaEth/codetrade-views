@@ -1,0 +1,563 @@
+body {
+  background: #f7f7f7;
+}
+.section1 {
+  height: 280px;
+  width: 100%;
+  background: url(../images/trade_bg.jpg) no-repeat center top;
+  background-size: cover;
+  margin-top: 70px;
+  table-layout: fixed;
+  padding: 0;
+  display: table!important;
+}
+.section1 > div {
+  vertical-align: middle;
+  display: table-cell;
+  height: 82px;
+}
+.section1 h1 {
+  font-size: 0.8rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 26px;
+}
+.section1 p {
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+.section2 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+.section2 .banxin {
+  background: #fff;
+  max-width: 1100px;
+}
+.section2 .banxin > div {
+  padding: 15px 30px;
+  border: 1px solid #e6e6e6;
+  margin-top: -1px;
+  overflow: hidden;
+}
+.section2 .banxin > div.rows {
+  padding: 15px 30px;
+  border: 1px solid #e6e6e6;
+  margin-top: -1px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.section2 label {
+  /*float: left;*/
+ 	width: 80px;
+  font-weight: normal;
+  color: #999999;
+  margin-top: 22px;
+}
+.section2 ul {
+  overflow: hidden;
+  /*width:860px;*/
+  margin-left: 18px;
+  margin-top: 22px;
+  flex: 1;
+}
+
+@media screen and (max-width: 1250px) {
+	.section2 label {
+    margin-top: 0px;
+	}
+  .section2 ul {
+  	margin-top: 0px;
+    overflow: hidden;
+    width:860px;
+    margin-left: 18px;
+  }
+}
+.section2 li.on a {
+  color: #3891f8;
+  font-weight: bold;
+}
+.section2 li {
+  margin-right: 32px;
+  margin-bottom: 15px;
+}
+.section2 li a {
+  color: #3c3c3c;
+}
+.section2 .banxin > div > a,
+.section2 ul,
+.section2 li {
+  float: left;
+}
+.section3 {
+  margin-top: 16px;
+}
+.section3 .banxin {
+  overflow: hidden;
+  max-width: 1100px;
+  width: 80%;
+  /*display: flex;*/
+}
+.section3 .banxin>ul{
+	margin: 0 -4px;
+}
+.section3 .banxin>ul>li {
+  padding: 4px;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+}
+.section3 .banxin>ul>li>a{
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #e6e6e6;
+  /*margin: 4px;*/
+  height: 202px;
+  display: block;
+}
+.section3 .box{ display: flex;}
+.section3 .box,
+.pay .modal-body .box {
+  overflow: hidden;
+}
+.section3 .box > div,
+.pay .modal-body .box > div {
+  float: left;
+}
+.section3 .box .box-left,
+.pay .modal-body .box-left {
+  width: 98px;
+  height: 98px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 18px;
+}
+.section3 .box-left img,
+.pay .modal-body .box-left img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+.section3 .box h6,
+.tradeDetail_section1 h1,
+.pay .modal-body .box h6 {
+  color: #141414;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 14px;
+  margin: 0;
+  text-align: left;
+}
+.section3 .box p,
+.detail-head-left p,
+.pay .modal-body .box p {
+  color: #505050;
+  margin: 0;
+  font-size: 16px;
+  text-align: left;
+}
+.section3 .box b,
+.detail-head-left b,
+.pay .modal-body .box b {
+  font-weight: normal;
+  color: #ff3413;
+}
+.section3 .box p:first-of-type,
+.detail-head-left p:first-of-type,
+.pay .modal-body .box p:first-of-type {
+  padding-bottom: 14px;
+}
+.type-tags {
+  padding-top: 35px;
+  padding-left: 10px;
+}
+.type-tags span {
+  float: left;
+  width: 20px;
+  height: 30px;
+  background: url(../images/trade3.png) no-repeat center 2px;
+  margin-right: 10px;
+}
+.type-tags .language{
+    float: left;
+    margin-top: 10px;
+    font-size: 0.2rem;
+}
+.type-tags span.type-andriod {
+  background-position: center -27px;
+}
+.type-tags span.type-webapp {
+  background-position: center -56px;
+}
+.type-tags span.type-cloudcode {
+  background-position: center -85px;
+}
+.type-tags ul {
+  float: left;
+  position: absolute;
+  left: 113px;
+  margin-top: 4px !important;
+}
+.type-tags ul li {
+  float: left;
+  padding: 4px 7px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  margin-right: 9px;
+  color: #999999;
+  font-size: 12px;
+}
+.load-more {
+  max-width: 992px;
+  margin: 0 auto;
+  margin-top: 15px;
+  display: block;
+  background: #fff;
+  height: 64px;
+  border: 1px solid #e6e6e6;
+  line-height: 64px;
+  margin-bottom: 80px;
+}
+.section1_success {
+  background: #fff;
+  margin-top: 10px;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 20px;
+}
+.section1_success p {
+  color: #646464;
+  font-size: 16px;
+}
+.section1_success b {
+  display: block;
+  min-width: 260px;
+  max-width: 300px;
+  padding-left: 46px;
+  margin: 0 auto;
+  background: url(../images/trade4.png) no-repeat left center;
+  height: 36px;
+  font-size: 30px;
+  color: #101010;
+  line-height: 36px;
+  margin-top: 3rem;
+  margin-bottom: 20px;
+}
+.section1_success img {
+  width: 90%;
+  max-width: 460px;
+  border: 1px solid #e6e6e6;
+  margin-top: 1.5rem;
+  margin-bottom: 40px;
+}
+.section1_success a {
+  display: block;
+  margin: 0 auto;
+  width: 203px;
+  height: 46px;
+  border-radius: 23px;
+  text-align: center;
+  line-height: 46px;
+  background: #ff7f40;
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.section1_success a:last-of-type {
+  margin-bottom: 4.8rem;
+  background: #3891f8;
+}
+.tradeDetail_section1 {
+  background: none;
+  margin-top: 90px;
+  display: block;
+  height: auto;
+}
+.tradeDetail_section1 .banxin {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 30px;
+  display: block;
+  overflow: hidden;
+  height: auto;
+}
+.detail-head-left > div {
+  float: left;
+}
+.detail-head-left,
+.detail-head-right {
+  float: left;
+  width:80%;
+}
+.img-box {
+  width: 144px;
+  height: 144px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 26px;
+}
+.img-box img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  margin-right: 26px;
+}
+.detail-head-left .type-tags {
+  padding-top: 20px;
+}
+.detail-head-right {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 85px;
+}
+.tradeDetail_section1 .banxin {
+  position: relative;
+}
+.detail-head-right button {
+  width: 160px;
+  height: 46px;
+  background: #3891f8;
+  text-align: center;
+  line-height: 46px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff!important;
+  border-radius: 23px;
+  padding: 0;
+}
+.tradeDetail_section2 .banxin {
+  border: 1px solid #e6e6e6;
+}
+.tradeDetail_section2 .banxin {
+  max-width: 1000px;
+}
+.tradeDetail_section2 p.title {
+  color: #3c3c3c;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 25px;
+  margin: 0;
+  padding-top: 20px;
+}
+.tradeDetail_section2 .banxin > div {
+  border: 0 none;
+}
+.tradeDetail_section2 .banxin > div p:nth-of-type(2) {
+  line-height: 28px;
+  font-size: 16px;
+}
+.tradeDetail_section2 ul {
+  margin: 0;
+  width:100%;
+}
+.tradeDetail_section2 ul li {
+  float: left;
+  width: 170px;
+  margin-right: 14px;
+  height: 264px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.tradeDetail_section2 ul li img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+.tradeDetail_section2 ol li {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.tradeDetail_section2 ol li a {
+  color: #3891f8;
+}
+.tradeDetail_section2 ol li span,
+.tradeDetail_section2 ol li img {
+  float: left;
+}
+.tradeDetail_section2 ol li img {
+  width: 120px;
+  height: auto;
+}
+.tradeDetail_section3 .banxin {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  padding: 60px 0;
+}
+.tradeDetail_section3 .banxin > div {
+  width: 90%;
+  margin: 0 auto;
+}
+.tradeDetail_section3 {
+  margin-bottom: 116px;
+}
+.tradeDetail_section3 p img {
+  width: 100%;
+  height: auto;
+}
+.tradeDetail_section3 ul {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.tradeDetail_section3 li {
+  float: left;
+  width: 20%;
+  text-align: center;
+  font-size: 14px;
+}
+.pay .modal-body > div {
+  overflow: hidden;
+}
+.pay .modal-body > div > label {
+  float: left;
+  font-weight: normal;
+  margin-right: 20px;
+}
+.pay .modal-body > div > div {
+  float: left;
+}
+.pay .modal-body {
+  padding-left: 100px;
+}
+.pay .modal-body .type-tags {
+  padding-top: 20px;
+}
+.pay .modal-body > div {
+  margin-bottom: 2.15rem;
+}
+.pay .modal-body > div:nth-of-type(2) > label {
+  margin-top: 10px;
+}
+.radio label {
+  display: block;
+  margin-bottom: 12px;
+}
+.pay .modal-header,
+.pay .modal-footer {
+  border: 0 none;
+}
+.modal-dialog h4 {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: #101010;
+  margin-bottom: 30px;
+}
+.pay .modal-footer {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+.pay .modal-footer button {
+  width: 160px;
+  height: 46px;
+  border-radius: 23px;
+  background: #3891f8;
+  color: #ffffff!important;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+
+@media screen and (max-width: 850px) {
+  .detail-head-right {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    float: left;
+  }
+
+}
+@media screen and (max-width: 40em){
+  .detail-head-right {
+    margin: 10px 0;
+  }
+
+  .img-box {
+    margin-bottom: 10px;
+  }
+  .tradeDetail_section3 {
+    display: none;
+  }
+  .tradeDetail_section2 {
+    margin-bottom: 30px;
+  }
+  .pay .modal-body {
+    padding-left: 20px;
+  }
+  .pay .modal-body > div,
+  .pay .modal-dialog h4 {
+    margin-bottom: 20px;
+  }
+  .section3 .banxin,
+  .section2 .banxin {
+    width: 98%;
+  }
+  .section3 .banxin> ul > li {
+    margin: 4px 0 ;
+    width: 100%;
+  }
+  .section2 .banxin> ul > div { display: block;}
+  .section2 ul {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+  .section2 label {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (min-width: 40em ) and (max-width: 768px) {
+    .section3 .banxin> ul > li {
+    margin: 4px 0 ;
+    width: 100%;
+  }
+  .section2 .banxin> ul > div { display: block;}
+  .section2 ul {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+  .section2 label {
+    margin-top: 5px;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1266px) {
+  .section3 .banxin>ul > li {
+    width: 50%;
+    padding: 4px;
+  	box-sizing: border-box;
+    height: auto;
+  }
+  .section3 .box > div {
+    margin-top: 10px;
+  }
+  .section3 .type-tags {
+    padding-top: 6px;
+  }
+  .section3 .type-tags span {
+    margin-top: 4px;
+  }
+  .section3 .type-tags ul {
+    margin-top: 13px !important;
+  }
+}
+
+
+
+.beta_img{
+  position: absolute; top: 0; right: 0;
+}
