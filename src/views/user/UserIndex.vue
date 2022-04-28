@@ -7,7 +7,7 @@
           <b>用户管理</b>
         </p>
       </div>
-      <ul class="subnav">
+      <ul style="font-size: 13px;font-weight: 500" class="subnav">
         <li @click="swith_tab({index:index})" v-for="(item,index) in swich_type" v-bind:class="current_tab===index?'on':''"><a>{{item}}</a></li>
       </ul>
     </div>
@@ -44,21 +44,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
-/*.pd1 {*/
-/*  padding: 0 10px;*/
-/*}*/
-
-/*.biaoti {*/
-/*  padding: 0 10px;*/
-/*  margin: 0;*/
-/*  height: 47px;*/
-/*  line-height: 47px;*/
-/*  font-size: 14px;*/
-/*}*/
-/*.news-subnav .badge {*/
-/*  margin-right: 10px;*/
-/*  background: #c0c1c2;*/
-/*}*/
+<style scoped src="../../assets/css/kk.css">
+.subul{
+  list-style-position: inside;
+  font-size: 13px;
+  font-weight: 500;
+}
 </style>

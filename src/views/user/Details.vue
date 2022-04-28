@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bodyk">
     <div v-if="user" class="main-right container">
       <div class="box-sh  mt  order-table">
         <form class="form-horizontal" id="user-form" role="form" action="/account/index" onsubmit="return account.validateAll()" method="post">
@@ -104,7 +104,7 @@ export default {
   }
 }
 </script>
-<style src="../../assets/css/kk.css">
+<style scoped src="../../assets/css/kk.css">
 
 </style>
 

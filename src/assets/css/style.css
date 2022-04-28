@@ -11,17 +11,17 @@ Version: 1.0
  * #-Style 4
  *
 */
+/*body{*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  font-size: 13px;*/
+/*  color: #191919;*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*  background: #E6E6E6;*/
+/*  font-family: 'Roboto', sans-serif;*/
+/*}*/
 
-body{
-	margin: 0;
-	padding: 0;
-	font-size: 16px;
-	color: #191919;
-	font-weight: normal;
-	font-style: normal;
-	background: #E6E6E6;
-	font-family: 'Roboto', sans-serif;
-}
 a,
 button {
 	-webkit-transition: all 0.3s ease-out 0s;
@@ -64,11 +64,13 @@ h1,h2,h3,h4,h5,h6,p{
 	margin:0;
 	padding: 0;
 }
-ul{
-	margin:0;
-	padding: 0;
-	list-style: none;
+
+ul {
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
 }
+
 a{
 	text-decoration: none;
 	transition: .4s;

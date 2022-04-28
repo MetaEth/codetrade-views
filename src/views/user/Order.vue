@@ -1,7 +1,7 @@
 
 <template>
 
-  <div class="main-right container">
+  <div class="bodyk main-right container">
     <div class="box-sh  mt  order-table">
       <div class="main-right-bottom  ">
         <div class="table-responsive">
@@ -82,6 +82,6 @@ export default {
 </script>
 
 
-<style>
+<style scoped src="../../assets/css/kk.css">
 
 </style>

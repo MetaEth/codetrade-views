@@ -47,11 +47,3 @@ export default {
 }
 </script>
 <style scoped></style>
-<!--<style>-->
-<!--@import "./assets/css/global.css";-->
-<!--@import "./assets/css/bootstrap.min.css";-->
-<!--@import "./assets/css/bootstrap-icons.css";-->
-<!--@import "./assets/css/base.css";-->
-<!--@import "./assets/css/transaction.css";-->
-<!--@import "./assets/css/style.css";-->
-<!--</style>-->
