@@ -61,7 +61,7 @@ export default {
         }
         localStorage.setItem('token', result.data.token)
         localStorage.setItem("user",JSON.stringify(result.data.userInfo))
-        this.$fire({title: "提示", text: "登入成功", type: "success", timer: 1000})
+        this.$fire({title: "提示", text: "登入成功", type: "success", timer: 1000, width: 300})
         setTimeout(() => {
           this.$router.back(-1)
         },800)

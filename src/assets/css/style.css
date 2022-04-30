@@ -352,7 +352,7 @@ p{
 	text-transform: capitalize;
 	font-weight: 500;
 	font-size: 16px;
-	background: #5f3afc;
+	background: #b85a52;
 	color: #fff;
 	border-radius: 10px;
 	-webkit-transition: all .4s ease-in-out;
@@ -366,7 +366,7 @@ p{
 	text-transform: capitalize;
 	font-weight: 500;
 	font-size: 16px;
-	background: #5f3afc;
+	background: #b85a52;
 	color: #fff;
 	border-radius: 10px;
 	-webkit-transition: all .4s ease-in-out;
@@ -375,7 +375,7 @@ p{
 	border: none;
 }
 .button-1:hover{
-	background: #2900d7;
+	background: #bb3024;
 }
 /*
  * #-Style 2
@@ -448,7 +448,7 @@ p{
 	opacity: 1;
 }
 .login-form-cd-style2-form .single-field i {
-	color: #5f3afc;
+	color: #b85a52;
 	font-size: 20px;
 	position: absolute;
 	left: 0px;
@@ -768,5 +768,10 @@ p{
 		width: 100%;
 		margin-right: 0%;
 		margin-bottom: 20px;
+	}
+}
+@media screen and (max-width: 40em) {
+  html {
+		font-size: 10px;
 	}
 }

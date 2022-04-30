@@ -1,8 +1,8 @@
 <template>
   <div class="header nobg">
     <div class="banxin">
-      <a class="logo">
-        <img src="../assets/picture/logo.png" alt="比目后端云" class="logo1" title="Bmob后端云-让移动开发更简单"/>
+      <a @click="backIndex" class="logo">
+        <img src="../assets/picture/logo.png"/>
       </a>
       <div class="header-right" id="min-nav">
 
@@ -13,7 +13,7 @@
 
         <ul v-if="!is_login" class="nav" id="nav">
           <li  class=""><span></span><a href="/user/details">欢迎：{{username}}</a></li>
-          <li class="" @click="user_exit"><span></span><a>退出登录</a></li>
+          <li class="" @click="user_exit"><span></span><a>退出</a></li>
           <!--
           <li class="on"><span></span><a href="/">首页</a></li>
           <li  class="" >
@@ -37,6 +37,9 @@ export default {
   name: 'WebHeader',
   inject: ["reload"],
   methods: {
+    backIndex(){
+      this.$router.push('/')
+    },
     user_exit(){
       localStorage.removeItem('user')
       localStorage.removeItem('token')

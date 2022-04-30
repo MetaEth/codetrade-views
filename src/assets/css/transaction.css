@@ -78,7 +78,7 @@ body {
   }
 }
 .section2 li.on a {
-  color: #3891f8;
+  color: #b85a52;
   font-weight: bold;
 }
 .section2 li {
@@ -180,7 +180,7 @@ body {
   float: left;
   width: 20px;
   height: 30px;
-  background: url(../images/trade3.png) no-repeat center 2px;
+  /*background: url(../images/clound.png) no-repeat center 2px;*/
   margin-right: 10px;
 }
 .type-tags .language{
@@ -353,13 +353,13 @@ body {
   font-size: 16px;
 }
 .tradeDetail_section2 ul {
-  margin: 0;
+  /*margin: 0;*/
   width:100%;
 }
 .tradeDetail_section2 ul li {
   float: left;
-  width: 170px;
-  margin-right: 14px;
+  width: 172px;
+  margin-right: 10px;
   height: 264px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -560,4 +560,11 @@ body {
 
 .beta_img{
   position: absolute; top: 0; right: 0;
+}
+
+@media screen and (max-width: 40em) {
+  .tradeDetail_section2 ul li {
+    width: unset;
+    height: unset;
+  }
 }

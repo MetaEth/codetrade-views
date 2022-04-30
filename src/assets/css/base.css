@@ -81,7 +81,7 @@ a {
 .logo {
   width: 9%;
   height: 45px;
-  margin-top:22px;
+  margin-top:16px;
 }
 .logo2 {
   display: none;
@@ -118,6 +118,7 @@ a {
   line-height: 35px;
   padding: 0 4px;
   margin-top: 18px;
+  font-weight: 540;
   font-family:"宋体";
 }
 .nav a:hover {
@@ -157,7 +158,7 @@ a {
 .nav ul li:hover a{border-color: #fff;}
 .nav li.on > a,
 .nav ul li:hover a {
-  color: #3794ff!important;
+  color: #a64e3f!important;
 }
 /*头部登录和注册按钮*/
 .login-register {
@@ -177,16 +178,16 @@ a {
   font-family:"宋体";
 }
 .login-register a.active {
-  border-color: #3891f8;
-  color: #3891f8;
+  border-color: #b85a52;
+  color: #b85a52;
 }
 .login-register a.active:hover {
-  background: #3891f8;
+  background: #b85a52;
   color: #ffffff;
 }
 .login-register a:hover {
   background: #f2f0f0;
-  color: #3891f8;
+  color: #b85a52;
 }
 .login-register a:nth-of-type(3) {
   color: #787878;
@@ -262,7 +263,7 @@ a:focus {
   .nav ul {
     display: block!important;
   }
-  .nav > li > a:hover{background:#14487c!important;}
+  .nav > li > a:hover{background:#a64e3f!important;}
   .nav-collapse ul {
     display: block;
     list-style: none;
@@ -285,7 +286,7 @@ a:focus {
     line-height: 70px;
   }
   .logo {
-    width: 66px;
+    width: 80px;
     margin-top: 27px;
     line-height: 20px !important;
   }
@@ -294,7 +295,7 @@ a:focus {
   }
   .logo img {
     padding-left: 10px;
-    width: 66px;
+    width: 80px;
   }
   .logo span {
     font-size: 12px;
@@ -368,7 +369,7 @@ a:focus {
     position: absolute;
     display: block;
     overflow-y: scroll;
-    background: #5191D1!important;
+    background: #b85a52!important;
     width: 100%!important;
     padding: 4px 0;
   }
@@ -398,7 +399,7 @@ a:focus {
     z-index: 2;
   }
   .nav-toggle:before {
-    color: #5191D1!important;
+    color: #b85a52!important;
     font-family: responsivenav;
     font-style: normal;
     font-weight: 400;
@@ -434,14 +435,14 @@ a:focus {
     height: auto;
   }
   .header-right a:hover {
-    background: #14487c !important;
+    background: #b85a52 !important;
   }
   .nav ul{display: block!important;opacity:1!important}
   .nav ul a {
     padding: 0;
     padding-left: 52%;
     color: #fff!important;
-    background: #5191D1!important;
+    background: #a64e3f!important;
     text-align: left;
     font-weight: 400;
     display: block !important;
@@ -450,9 +451,45 @@ a:focus {
   }
   .free{font-size:14px!important;}
   .header{height:50px;}
-  .logo{margin-top:16px;line-height:16px;height:30px;}
+  .logo{margin-top:10px;line-height:16px;height:30px;}
   .nav-toggle{height:36px;}
   .nav-toggle:before{top:-8px;}
+}
+@media screen and (max-width: 40em) {
+  .login-register {
+    margin-top: 12px;
+  }
+  .login-register a {
+    color: #787878 !important;
+    border: 1px solid #dcdcdc !important;
+    margin: auto 0;
+    margin-right: 10px;
+    width: unset;
+    padding: 2px 3px !important;
+    font-size: 12px;
+  }
+  .header-right .nav {
+    display: flex;
+    margin-top: 5px;
+  }
+  .login-register a, .nav>li>a {
+    color: #787878 !important;
+    font-size: 12px;
+    margin-right: 10px;
+    /* width: 120px; */
+  }
+  .nav>li>a {
+    padding: 10px 0 !important;
+  }
+  .nav li {
+    width: unset;
+  }
+  .section1 h1 {
+    font-size: 15px !important;
+  }
+  .section1 p {
+    font-size: 15px !important;
+  }
 }
 @-webkit-keyframes myanimation1 {
   0% {
@@ -505,7 +542,7 @@ a:focus {
   content: '';
   height: 1px;
   display: block;
-  background: #3891f8;
+  background: #b85a52;
   margin: 0 auto;
   animation: myanimation1 .5s;
   -moz-animation: myanimation1 .5s;
@@ -524,7 +561,7 @@ a:focus {
   content: '';
   height: 1px;
   display: block;
-  background: #3794ff;
+  background: #b85a52;
   margin: 0 auto;
   animation: myanimation1 .5s;
   -moz-animation: myanimation1 .5s;

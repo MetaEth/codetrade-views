@@ -8,6 +8,12 @@ html {
   box-sizing: border-box;
   min-width:320px!important;
 }
+.container {
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: 10px;
+}
+
 @media screen and (min-width:1200px){
   html{font-size:40px;}
 }
@@ -901,7 +907,7 @@ label {
   max-width:100%!important;
   overflow-x: hidden!important;
   height: 100%;
-  padding-left: 238px;
+  padding-left: 228px;
   background: #f6f6f6!important;
   font-size: 12px!important;
   font-family: "Helvetica Neue", Helvetica, "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
@@ -1422,5 +1428,14 @@ pre {
   .video-item{ margin-left: 0px ; margin-top: 20px; min-height: 490px; }
   .appadd .control-label {
     padding-left: 15px!important;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .bodyk {
+    padding-left: unset;
+  }
+  .main-left {
+    width: 100%;
   }
 }

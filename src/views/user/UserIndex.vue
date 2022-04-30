@@ -3,8 +3,8 @@
   <div v-if="userChoose" class="main-left">
     <div>
       <div>
-        <p class="biaoti pd1">
-          <b>用户管理</b>
+        <p class="biaoti pd1" @click="back">
+          <b><-返回首页</b>
         </p>
       </div>
       <ul style="font-size: 13px;font-weight: 500" class="subnav">
@@ -27,6 +27,10 @@ export default {
     }
   },
   methods: {
+    back(){
+      this.$router.push('/')
+      console.log("hello")
+    },
     swith_tab (event) {
       this.current_tab = event.index
       if(event.index==0){

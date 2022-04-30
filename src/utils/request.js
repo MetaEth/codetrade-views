@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {reject} from "eslint-plugin-promise/rules/lib/promise-statics";
 axios.defaults.timeout = 7000;
-//axios.defaults.baseURL ='http://localhost:8081';
-axios.defaults.baseURL ='http://101.33.227.29';
+axios.defaults.baseURL ='http://localhost:8080';
+//axios.defaults.baseURL ='http://101.33.227.29';
 
 //http request 拦截器
 axios.interceptors.request.use(

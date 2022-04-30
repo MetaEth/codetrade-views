@@ -63,9 +63,10 @@
                     </div>
                   </div>
                   <div class="type-tags" style="position:relative">
-                    <span v-if="item.platform_name=='网页'?true:false" class="type-cloudcode"  title="" data-original-title="iOS"></span>
-                    <span v-else-if="item.platform_name=='微信小程序'?true:false" class="type-webapp" title="" data-original-title="iOS"></span>
-                    <span v-else-if="item.platform_name=='APP'?true:false" class="type-iphone " title="" data-original-title="iOS"></span>
+                    <span v-if="item.platform_name=='网页'?true:false"><img style="margin-top:5px;" src="../../assets/images/html.png"></span>
+                    <span v-else-if="item.platform_name=='微信小程序'?true:false"><img style="margin-top: 5px;" src="../../assets/images/miniproject.png"></span>
+                    <span v-else-if="item.platform_name=='APP'?true:false"><img style="margin-top: 5px;" src="../../assets/images/app.png"></span>
+                    <span v-else-if="item.platform_name=='其他'?true:false"><img style="margin-top: 5px;" src="../../assets/images/others.png"></span>
                     <ul style="margin-top:5px">
                       <li v-for="(item, index) in item.label">{{item}}</li>
                     </ul>

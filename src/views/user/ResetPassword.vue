@@ -134,10 +134,12 @@ export default {
 
 <style scoped>
 .login-form-cd-style2-form .single-field i.send {
-  background: #5f3afc;
+  background:#b85a52;
   font-size: 15px;
   position: absolute;
-  left: 290px;
+  /* left: 290px; */
+  left: unset;
+  right: 10px;
   top: 15%;
   align-items: center;
   color: #fff;
