@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import cookie from 'cookie_js'
+
 
 import "./assets/css/global.css";
 import "./assets/css/bootstrap.min.css";
@@ -11,16 +11,11 @@ import "./assets/css/bootstrap-icons.css";
 import "./assets/css/base.css";
 import "./assets/css/transaction.css";
 import "./assets/css/style.css";
-
-
-
-
-
-
 //使用vue-alert插件
 import VueSimpleAlert from "vue-simple-alert";
 Vue.use(VueSimpleAlert, { reverseButtons: true });
 
+//定义全局Get and Post
 import {post, get} from './utils/request'
 // 定义全局变量
 Vue.prototype.$Post = post

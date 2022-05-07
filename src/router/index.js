@@ -74,17 +74,15 @@ export default new Router({
         {
           path: 'vip',
           name:'Vip',
-          meta: {
-            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-          },
           component:()=>import('../views/user/Vip')
+        },
+        {
+          path: 'pay',
+          name:'Pay',
+          component:()=>import('../views/user/Pay')
         }
       ]
     }
   ],
-  beforeEach:((to, from, next) => {
-  console.log("++++++++++1111111111111")
-})
-
 })
 

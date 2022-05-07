@@ -154,7 +154,8 @@ export default {
       var shop_data={
         own:own,
         shop: shop.objectId,
-        orderId:"20220321151705355265",
+        shop_name:shop.name,
+        orderId:"",
         shopMoney:shop.price,
         payMoney:'',
         remarks:"普通购买"
@@ -175,12 +176,13 @@ export default {
             this.$router.push('/user/vip')
           })
           .catch(() => {
+            this.$router.push({name:'Pay',params: {type:"shopPay",shopPay_data:shop_data}})
             shop_data.payMoney=shop_data.shopMoney
             console.log(shop_data,"shop")
-            this.$alert(`取消会员操作，前往支付${shop_data.price}`);
+            //this.$alert(`取消会员操作，前往支付${shop_data.price}`);
             //插入订单数据
-            this.insert_shop(shop_data)
-            this.$fire({title: "提示", text: "非会员购买成功", type: "success", timer: 3000})
+            //this.insert_shop(shop_data)
+            //this.$fire({title: "提示", text: "非会员购买成功", type: "success", timer: 3000})
             console.log("OK not selected.");
           });
         return
@@ -201,7 +203,7 @@ export default {
           shop_data.remarks='三年会员，完整项目5折下载'
           alert("完整项目，三年会员,5折")
         }
-        this.$fire({title: "提示", text: "完整项目，员购买成功", type: "success", timer: 3000})
+        //this.$fire({title: "提示", text: "完整项目，员购买成功", type: "success", timer: 3000})
       }else{
         //是模板
         if(user.vip_type==1){
@@ -218,9 +220,9 @@ export default {
           alert("模板，三年会员,0.1折")
         }
 
-        this.$fire({title: "提示", text: "模板，员购买成功", type: "success", timer: 3000})
+        //this.$fire({title: "提示", text: "模板，员购买成功", type: "success", timer: 3000})
       }
-      this.insert_shop(shop_data)
+      //this.insert_shop(shop_data)
     }
   },
   created() {

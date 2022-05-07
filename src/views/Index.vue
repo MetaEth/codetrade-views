@@ -2,10 +2,6 @@
   <div>
     <WebHeader></WebHeader>
     <Data></Data>
-
-
-
-
   </div>
 </template>
 

@@ -144,7 +144,7 @@ export default {
       console.log(vipAtTimestamp,serverTimestamp)
       var params={
         own:JSON.parse(localStorage.getItem('user'))._id,
-        orderId:"20220321151705355265",
+        orderId:'',
         payMoney:this.price,
         vip_type:'',
         vipAt:'',
@@ -162,20 +162,21 @@ export default {
         params.vipAt=new Date((vipAtTimestamp>serverTimestamp?vipAtTimestamp:serverTimestamp)+365 * 24 * 60 * 60 * 1000) //一年
       }else if(price_type==2){
         params.vip_type=3
-        params.remarks="永久会员"
+        params.remarks="三年会员"
         params.vipAt=new Date((vipAtTimestamp>serverTimestamp?vipAtTimestamp:serverTimestamp)+1098 * 24 * 60 * 60 * 1000) //十年
       }
       console.log(params,"pa")
       if(pay_type==0){
-        console.log(result,"微信支付")
+        this.$router.push({name:'Pay',params: {type:"vipPay",vipPay_data:params}})
+        console.log("微信支付")
       }else if(pay_type==1){
-        console.log(result,"支付宝支付")
+        console.log("支付宝支付")
       }
 
-      var result =await this.$Post('/api/pay',params)
-      if(result.status==200){
-        this.$fire({title: "提示", text: "购买成功", type: "success", timer: 3000})
-      }
+      // var result =await this.$Post('/api/pay',params)
+      // if(result.status==200){
+      //   this.$fire({title: "提示", text: "购买成功", type: "success", timer: 3000})
+      // }
 
     }
   }

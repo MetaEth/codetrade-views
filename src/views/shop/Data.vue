@@ -277,14 +277,14 @@ export default {
 <style scoped>
 
 .section1 h1 {
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   color: #fff;
   text-align: center;
   margin: 0;
   margin-bottom: 26px;
 }
 .section1 p {
-  font-size: 2.4rem;
+  font-size: 2.0rem;
   color: #fff;
   text-align: center;
   margin: 0;
