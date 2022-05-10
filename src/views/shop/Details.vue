@@ -154,8 +154,8 @@ export default {
       var shop_data={
         own:own,
         shop: shop.objectId,
-        shop_name:shop.name,
         orderId:"",
+        shop_name:shop.name,
         shopMoney:shop.price,
         payMoney:'',
         remarks:"普通购买"
@@ -222,6 +222,7 @@ export default {
 
         //this.$fire({title: "提示", text: "模板，员购买成功", type: "success", timer: 3000})
       }
+      this.$router.push({name:'Pay',params: {type:"shopPay",shopPay_data:shop_data}})
       //this.insert_shop(shop_data)
     }
   },

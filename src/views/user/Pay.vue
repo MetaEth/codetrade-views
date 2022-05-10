@@ -40,11 +40,14 @@ export default {
   },
   methods:{
     async useqrcode(){
-      var result =await this.$Post('/api/pay/wechatpay',{payMoney:this.payMoney,description:this.description})
+      var payType=sessionStorage.getItem("payType")
+      var result =await this.$Post('/api/pay/wechatpay',{payType:payType,payMoney:this.payMoney, description:this.description})
       if(result.status!=200){
         alert("请求失败，请刷新浏览器")
         return
       }
+      //生成了订单号，然后写入数据
+      this.create_order(result.order_id)
       console.log(result,"result")
       let code_url=result.code_url
       let opts = {
@@ -67,8 +70,19 @@ export default {
           console.log("success!")
         }
       });
+    },
+    create_order(order_id){
+      var payType=sessionStorage.getItem("payType")
+      if(payType=="vipPay"){
+        var params=JSON.parse(sessionStorage.getItem("vipPay_data"))
+        params.orderId=order_id
+        this.$Post('/api/pay/all_viporder',params)
+      }else if(payType=="shopPay"){
+        var params=JSON.parse(sessionStorage.getItem("shopPay_data"))
+        params.orderId=order_id
+        this.$Post('/api/pay/all_shoporder',params)
+      }
     }
-
   },
   mounted(){
     // 组件挂载的时候，调用生成二维码函数
@@ -82,14 +96,14 @@ export default {
       //路由跳转,判断商品跳转还是vip跳转
       if(parmas.type=="shopPay"){
         sessionStorage.setItem("shopPay_data",JSON.stringify(parmas.shopPay_data))
-        this.payMoney=parmas.shopPay_data.payMoney
+        this.payMoney=Number(parmas.shopPay_data.payMoney).toFixed(2)
         this.description=parmas.shopPay_data.shop_name
         //商品支付
         // console.log("商品支付")
       }else if(parmas.type=="vipPay"){
         //vip支付
         sessionStorage.setItem("vipPay_data",JSON.stringify(parmas.vipPay_data))
-        this.payMoney=parmas.vipPay_data.payMoney
+        this.payMoney=Number(parmas.vipPay_data.payMoney).toFixed(2)
         this.description=parmas.vipPay_data.remarks
         // console.log("vip支付")
       }
@@ -98,10 +112,10 @@ export default {
       var payType=sessionStorage.getItem("payType")
       console.log(payType,"PPPP")
       if (payType=="shopPay"){
-        this.payMoney=JSON.parse(sessionStorage.getItem("shopPay_data")).payMoney
+        this.payMoney=Number(JSON.parse(sessionStorage.getItem("shopPay_data")).payMoney).toFixed(2)
         this.description=JSON.parse(sessionStorage.getItem("shopPay_data")).shop_name
       }else if(payType=="vipPay"){
-        this.payMoney=JSON.parse(sessionStorage.getItem("vipPay_data")).payMoney
+        this.payMoney=Number(JSON.parse(sessionStorage.getItem("vipPay_data")).payMoney).toFixed(2)
         this.description=JSON.parse(sessionStorage.getItem("vipPay_data")).remarks
       }else{
         alert("非法入口，出错")
