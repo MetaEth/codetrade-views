@@ -60,8 +60,6 @@ export default {
 
   activated() {
     // 页面每次进入将手机动态验证码置为空
-    //this.is_login=false
-    console.log("Pppppppppppppppppppp")
     this.get_user()
   },
   data(){
@@ -72,7 +70,6 @@ export default {
   },
   created () {
     this.get_user()
-    console.log("0000000000001111111111")
   }
 }
 </script>

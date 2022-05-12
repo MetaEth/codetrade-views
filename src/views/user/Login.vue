@@ -33,15 +33,23 @@
 </template>
 
 <script>
+var backPath=""//定义全局
 export default {
   name: 'Login',
   data(){
     return {
+      backPath:"",
       login_data:{
         phone:"",
         password:""
       }
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    backPath=from.fullPath
+    console.log(backPath,"ioi")
+    next()
+    //在next中写处理函数
   },
   methods:{
     async onsubmit(){
@@ -62,8 +70,15 @@ export default {
         localStorage.setItem('token', result.data.token)
         localStorage.setItem("user",JSON.stringify(result.data.userInfo))
         this.$fire({title: "提示", text: "登入成功", type: "success", timer: 1000, width: 300})
+
+        console.log(this.$router,"456")
         setTimeout(() => {
-          this.$router.back(-1)
+          if(backPath=="/user/register" || backPath=="/" || backPath=="/user/resetpassword"){
+            this.$router.push("/")
+          }else{
+            this.$router.back(-1)
+          }
+
         },800)
       }
       else{

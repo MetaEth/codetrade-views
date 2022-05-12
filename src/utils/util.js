@@ -18,7 +18,17 @@ function checkUsername(username){
     return false
   }
 }
+function randomStr(){	//产生一个32为随机字符串，作为订单号
+  var str = "";
+  var arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  for(var i=1;i<=32;i++){
+    var random = Math.floor(Math.random()*arr.length);
+    str += arr[random];
+  }
+  return str;
+}
 module.exports = {
   checkPhone,
   checkUsername,
+  randomStr,
 }

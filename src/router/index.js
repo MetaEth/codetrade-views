@@ -17,7 +17,8 @@ export default new Router({
       path: '/',
       redirect: '/Index',
       meta: {
-        keepAlive: true //设置页面是否需要使用缓存
+        keepAlive: true, //设置页面是否需要使用缓存
+        requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
       },
     },
     {
@@ -25,7 +26,8 @@ export default new Router({
       name: 'Index',
       component: () => import('../views/Index'),
       meta: {
-        keepAlive: true //设置页面是否需要使用缓存
+        keepAlive: true, //设置页面是否需要使用缓存
+        requireAuth: false  // 添加该字段，表示进入这个路由是需要登录的
       },
     },
     {
@@ -49,37 +51,58 @@ export default new Router({
         {
           path:'login',
           name:'Login',
-          component:()=>import('../views/user/Login')
+          component:()=>import('../views/user/Login'),
+          meta: {
+            requireAuth: false,
+          },
         },
         {
           path:'register',
           name:'Register',
-          component:()=>import('../views/user/Register')
+          component:()=>import('../views/user/Register'),
+          meta: {
+            requireAuth: false,
+          }
         },
         {
           path:'resetpassword',
           name:'ResetPassword',
-          component:()=>import('../views/user/ResetPassword')
+          component:()=>import('../views/user/ResetPassword'),
+          meta: {
+            requireAuth: false,
+          }
         },
         {
           path: 'details',
           name: 'Details',
-          component:()=>import('../views/user/Details')
+          component:()=>import('../views/user/Details'),
+          meta: {
+            requireAuth: true,
+          },
         },
         {
           path: 'order',
           name: 'Order',
-          component:()=>import('../views/user/Order')
+          component:()=>import('../views/user/Order'),
+          meta: {
+            requireAuth: true,
+          },
         },
         {
           path: 'vip',
           name:'Vip',
-          component:()=>import('../views/user/Vip')
+          component:()=>import('../views/user/Vip'),
+          meta: {
+            requireAuth: true,
+          },
         },
         {
           path: 'pay',
           name:'Pay',
-          component:()=>import('../views/user/Pay')
+          component:()=>import('../views/user/Pay'),
+          meta: {
+            requireAuth: true,
+          },
         }
       ]
     }

@@ -72,7 +72,7 @@
           <li>查看详情</li>
         </ul>
         <ul>
-          <li>（注册Bmob帐号）</li>
+          <li>（注册会员帐号）</li>
 <!--          <li>（查看项目列表）</li>-->
           <li>（在线购买对应项目）</li>
           <li>（完善应用相关配置）</li>
@@ -95,6 +95,7 @@ import ShopIndex from "./ShopIndex";
 import BottomNews from "../../components/BottomNews";
 import WebHeader from "../../components/WebHeader";
 import WebBottom from "../../components/WebBottom";
+import util from '../../utils/util'
 const moment = require("moment")
 
 export default {
@@ -121,6 +122,7 @@ export default {
         this.check_buy()
       })
     },
+    //检查是否购买
     async check_buy(){
       //判断是否登入
       var user=localStorage.getItem('user')
@@ -132,7 +134,7 @@ export default {
         //判断是否购买
         var own=user._id
         var result=await this.$Get('/view/shoporder/findOne',{own:own,shop:this.shop_id})
-        console.log(result,"resu")
+        //console.log(result,"resu")
         if(result){
           this.is_buy=true
           this.download_links=result.shop.download_links
@@ -163,6 +165,8 @@ export default {
       }
       //判断价格，如果价格为零，直接下载
       if(shop.price==0) {
+        shop_data.orderId=util.randomStr()
+        delete shop_data.cocketId//不用微信支付，删除socketId
         shop_data.payMoney = 0
         this.insert_shop(shop_data)
         return
@@ -224,7 +228,6 @@ export default {
         //this.$fire({title: "提示", text: "模板，员购买成功", type: "success", timer: 3000})
       }
       this.$router.push({name:'Pay',params: {type:"shopPay",shopPay_data:shop_data}})
-      //this.insert_shop(shop_data)
     }
   },
   created() {

@@ -1,10 +1,7 @@
 import axios from 'axios';
-import {reject} from "eslint-plugin-promise/rules/lib/promise-statics";
 //axios.defaults.timeout = 7000;
-axios.defaults.baseURL ='https://www.idleduck.cn';
-//axios.defaults.baseURL ='http://localhost:8080';
-
-
+//axios.defaults.baseURL ='https://www.idleduck.cn';
+axios.defaults.baseURL ='http://localhost:8080';
 //http request 拦截器
 axios.interceptors.request.use(
   config => {
@@ -13,7 +10,7 @@ axios.interceptors.request.use(
     config.headers={
       "Content-Type":"application/json",
       "Authorization" :`${token}`
-    },
+    }
     // if(token){
     //
     // }
@@ -21,7 +18,7 @@ axios.interceptors.request.use(
     return config;
   },
   error => {
-    return Promise.reject(err);
+    return error
   }
 );
 
@@ -41,7 +38,7 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
-    return Promise.reject(error)
+    return error
   }
 )
 export function get(url,params){

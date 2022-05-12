@@ -2,8 +2,8 @@
     <div>
       <div class="section1">
         <div>
-          <h1>闲鸭源码市场，精选优质模板，网站代售服务！</h1>
-          <p>闲鸭qq交流群：1114221010</p>
+          <h1>闲鸭源码市场，精选优质模板，软件代售服务！</h1>
+          <p>闲鸭qq交流群：806589636</p>
         </div>
       </div>
       <div class="section2">
@@ -124,7 +124,7 @@ export default {
             codetype_name:res[i].codetype
           })
         }
-        console.log(code_type,"code_type")
+        //console.log(code_type,"code_type")
         this.code_type=code_type
 
       })
@@ -139,7 +139,7 @@ export default {
             platform_name:res[i].platform_name
           })
         }
-        console.log(platform_type,"platform_type")
+        //console.log(platform_type,"platform_type")
         this.platform_type=platform_type
       })
     },
@@ -153,9 +153,8 @@ export default {
             type_name:res[i].type_name
           })
         }
-        console.log(type,"type")
+        //console.log(type,"type")
         this.type=type
-        //this.$cookie.set("type",JSON.stringify(type))
       })
     },
     //得到shop
@@ -239,21 +238,10 @@ export default {
         console.log("刷新数据-------------------------");
         //this.offset++;
         //滚动至底部后请求数据
-
-      }
-    },
-    async test(){
-      var result=await this.$Get('/api/getUserInfo')
-      console.log(result,"result1111111111")
-      if(result.status===400){
-        console.log(result,"result")
       }
     }
   },
   activated() {
-    this.test()
-    // 页面每次进入将手机动态验证码置为空
-    console.log("))))))))0000000")
 
   },
   created(){
@@ -261,7 +249,6 @@ export default {
     this.get_platform_type()
     this.get_type()
     this.get_shop()
-    console.log("created")
   },
 
   mounted(){
