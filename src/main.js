@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-
+// import "./socket/index"//导入socket
 import "./assets/css/global.css";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/bootstrap-icons.css";
@@ -20,10 +20,14 @@ import {post, get} from './utils/request'
 // 定义全局变量
 Vue.prototype.$Post = post
 Vue.prototype.$Get = get
-
 Vue.config.productionTip = false
 // 定义一个EventBus进行兄弟间组件通讯
 Vue.prototype.$bus=new Vue()
+
+//定义一个全局的cosket io
+import {io} from "socket.io-client"
+Vue.prototype.$Io=io
+
 
 new Vue({
   el: '#app',

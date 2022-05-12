@@ -155,6 +155,7 @@ export default {
         own:own,
         shop: shop.objectId,
         orderId:"",
+        socketId:"",//存放socketId
         shop_name:shop.name,
         shopMoney:shop.price,
         payMoney:'',

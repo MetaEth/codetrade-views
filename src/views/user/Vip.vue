@@ -146,6 +146,7 @@ export default {
       var params={
         own:JSON.parse(localStorage.getItem('user'))._id,
         orderId:"",
+        socketId:"",//存放socketId
         payMoney:this.price,
         vipType:'',
         vipAt:'',

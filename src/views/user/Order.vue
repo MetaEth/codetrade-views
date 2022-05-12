@@ -62,8 +62,8 @@ export default {
           shopOrder.push({
             orderId:res[i].orderId,
             shopName:res[i].shop.shop_name,
-            shopMoney:res[i].shopMoney,
-            payMoney:res[i].payMoney,
+            shopMoney:Number(res[i].shopMoney).toFixed(2),
+            payMoney:Number(res[i].payMoney).toFixed(2),
             download_links:res[i].shop.download_links,
             status:res[i].status,
             remarks:res[i].remarks,

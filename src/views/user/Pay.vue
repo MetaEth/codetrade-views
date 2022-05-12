@@ -2,7 +2,7 @@
   <div   class="web_qrcode_area"  >
     <span class="web_qrcode_wrp">
         <!-- 默认 -->
-      <div class="js_status js_wx_default_tip" >
+      <div v-if="!payStatus" class="js_status js_wx_default_tip" >
           <div class="web_qrcode_tips"><i class="web_qrcode_tips_logo"></i>使用微信扫一扫支付</div>
           <div class="web_qrcode_app_wrp">
             「<strong class="web_qrcode_app">金额：{{payMoney}}元</strong>」
@@ -11,10 +11,10 @@
         <!--        <img class="web_qrcode_img" src="../assets/picture/48d9b9cc33ea4be196371d8fdca87b85.gif"/>-->
         </div>
       <!-- 扫码成功 -->
-        <div v-if="false" class="js_status js_wx_after_scan"      id="wx_after_scan">
+        <div v-if="payStatus"  class="js_status js_wx_after_scan">
           <i class="web_qrcode_msg_icon web_qrcode_msg_icon_success"></i>
-          <h1 class="web_qrcode_msg_title">扫描成功</h1>
-          <p class="web_qrcode_msg_desc">在微信中输入密码支付</p>
+          <h1 class="web_qrcode_msg_title">支付成功</h1>
+          <p class="web_qrcode_msg_desc">{{btn}}秒后返回</p>
         </div>
       <!-- 取消登录 -->
         <div v-if="false"  class="js_status js_wx_after_cancel">
@@ -29,16 +29,64 @@
   </div>
 </template>
 <script>
+//导入socket
+import io from 'socket.io-client'
+
+//导入二维码库
 import QRCode from "qrcode"
 export default {
   name: 'Pay',
   data(){
     return{
+      btn:6,//倒计时
+      payStatus:false,
       payMoney:'',
       description:'',
+      socket:''
     }
   },
   methods:{
+    //支付成功后返回倒计时
+    codeInterval() {
+      const TIME_COUNT = 6;
+      if (!this.timer) {
+        this.count = TIME_COUNT;
+        this.timer = setInterval(() => {
+          if (this.count > 0 && this.count <= TIME_COUNT) {
+            this.btn = this.count--
+            if (this.count==0){
+              this.$router.back()
+            }
+          } else {
+            this.is_send=true
+            clearInterval(this.timer);
+            this.timer = null;
+          }
+        }, 1000);
+      }
+    },
+    //生成socketId
+    create_SocketId(){
+      return new Promise((resolve,reject)=>{
+        // 创建链接
+        this.socket = io()
+        this.socket.on("payStatus",data=>{
+          if(data){
+            this.payStatus=true
+            this.codeInterval()
+            console.log(data,"支付状态")
+          }else{
+            console.log("未支付")
+          }
+        })
+        this.socket.on('socketId',socket_id=>{
+          resolve(socket_id)
+          this.server=socket_id
+          console.log('我的socket_id是：'+socket_id)
+        })
+        //this.socket.connect();
+      })
+    },
     async useqrcode(){
       var payType=sessionStorage.getItem("payType")
       var result =await this.$Post('/api/pay/wechatpay',{payType:payType,payMoney:this.payMoney, description:this.description})
@@ -47,7 +95,7 @@ export default {
         return
       }
       //生成了订单号，然后写入数据
-      this.create_order(result.order_id)
+      this.create_order(result.order_id,this.socket_id)
       console.log(result,"result")
       let code_url=result.code_url
       let opts = {
@@ -71,23 +119,34 @@ export default {
         }
       });
     },
-    create_order(order_id){
+   async create_order(order_id){
+      var socket_id=await this.create_SocketId()
+     console.log(socket_id,"pppp")
       var payType=sessionStorage.getItem("payType")
       if(payType=="vipPay"){
         var params=JSON.parse(sessionStorage.getItem("vipPay_data"))
         params.orderId=order_id
+        params.socketId=socket_id
         this.$Post('/api/pay/all_viporder',params)
       }else if(payType=="shopPay"){
         var params=JSON.parse(sessionStorage.getItem("shopPay_data"))
         params.orderId=order_id
+        params.socketId=socket_id
         this.$Post('/api/pay/all_shoporder',params)
       }
+
     }
+  },
+  beforeDestroy(){
+    console.log("离开了")
+    //离开断开socket连接
+    this.socket.disconnect()
   },
   mounted(){
     // 组件挂载的时候，调用生成二维码函数
      this.useqrcode()
   },
+
   created () {
     //判断是刷新页面还是路由跳转
     var parmas=this.$route.params
