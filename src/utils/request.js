@@ -1,7 +1,7 @@
 import axios from 'axios';
 //axios.defaults.timeout = 7000;
-//axios.defaults.baseURL ='https://www.idleduck.cn';
-axios.defaults.baseURL ='http://localhost:8080';
+axios.defaults.baseURL ='https://www.idleduck.cn';
+//axios.defaults.baseURL ='http://localhost:8080';
 //http request 拦截器
 axios.interceptors.request.use(
   config => {

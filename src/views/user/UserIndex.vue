@@ -45,7 +45,6 @@ export default {
     this.$bus.$on("userChoose",(data)=>{
       this.userChoose=data
     });
-    console.log("ooo")
   }
 }
 </script>

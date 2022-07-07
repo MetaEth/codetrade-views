@@ -21,7 +21,7 @@
               <td>{{item.shopName}}</td>
               <td>{{item.shopMoney}}</td>
               <td>{{item.payMoney}}</td>
-              <td>{{item.status}}</td>
+              <td>支付成功</td>
               <td>{{item.remarks}}</td>
               <td>{{item.createdAt}}</td>
               <td @click="download(item.download_links)"><a>下载</a></td>

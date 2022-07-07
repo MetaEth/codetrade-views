@@ -5,7 +5,7 @@
         <div class="smtitle">VIP服务选择</div>
         <div class="wpd">
           <div class="main clearfix" >
-            <dl @click="cls({price:0.1,price_index:0})" v-bind:class="price_class==0? `zprt zpt1 on `:'zprt zpt1'" data-beshared="4">
+            <dl @click="cls({price:48,price_index:0})" v-bind:class="price_class==0? `zprt zpt1 on `:'zprt zpt1'" data-beshared="4">
               <dt>
                 <span><b>月度会员</b></span>
                 <span>
@@ -31,7 +31,7 @@
               </dd>
               <em><img src="../../assets/picture/szs1.png"></em>
             </dl>
-            <dl @click="cls({price:0.2,price_index:1})" v-bind:class="price_class==1?'zprt zpt2 on':'zprt zpt2'"  data-beshared="10">
+            <dl @click="cls({price:98,price_index:1})" v-bind:class="price_class==1?'zprt zpt2 on':'zprt zpt2'"  data-beshared="10">
               <dt>
                 <span><b>年度会员</b></span>
                 <span>
@@ -58,7 +58,7 @@
               <!---->
               <em><img src="../../assets/picture/szs2.png"></em>
             </dl>
-            <dl @click="cls({price:0.3,price_index:2})" v-bind:class="price_class==2?'zprt zpt3 on':'zprt zpt3'" data-beshared="30">
+            <dl @click="cls({price:198,price_index:2})" v-bind:class="price_class==2?'zprt zpt3 on':'zprt zpt3'" data-beshared="30">
               <dt>
                 <span><b>三年会员</b></span>
                 <span>
@@ -167,12 +167,10 @@ export default {
         params.remarks="三年会员"
         params.vipAt=new Date((vipAtTimestamp>serverTimestamp?vipAtTimestamp:serverTimestamp)+1098 * 24 * 60 * 60 * 1000) //十年
       }
-      console.log(params,"pa")
       if(pay_type==0){
         this.$router.push({name:'Pay',params: {type:"vipPay",vipPay_data:params}})
-        console.log("微信支付")
       }else if(pay_type==1){
-        console.log("支付宝支付")
+        alert("暂不支持支付宝支付")
       }
 
       // var result =await this.$Post('/api/pay',params)

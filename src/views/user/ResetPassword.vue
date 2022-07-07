@@ -94,7 +94,6 @@ export default {
       var result=await this.$Get('/api/tencentcloud/sendsms',{phone:this.repeat_data.phone,smsType:"resetPassword"})
       if(result.code==200){
         this.$fire({title: "提示", text: "验证码发送成功", type: "success", timer: 1500})
-        console.log(result,"result")
         this.codeInterval();
       }else{
         this.is_send=true
@@ -124,7 +123,6 @@ export default {
         }else{
           alert("密码重置失败,验证码或者号码无效！")
         }
-        console.log(res,"00000")
       })
 
     }

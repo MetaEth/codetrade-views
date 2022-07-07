@@ -47,7 +47,6 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     backPath=from.fullPath
-    console.log(backPath,"ioi")
     next()
     //在next中写处理函数
   },
@@ -83,7 +82,7 @@ export default {
       }
       else{
         alert("信息不正确，登入失败！")
-        console.log("登录失败")
+        // console.log("登录失败")
       }
     }
   },

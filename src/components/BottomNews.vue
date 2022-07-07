@@ -1,5 +1,5 @@
 <template>
-  <div class="record"><span>©</span> 2021-2022 <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备13082982号</a></div>
+  <div class="record"><span>©</span> 2022-2028 <a href="https://icp.chinaz.com/" target="_blank">粤ICP备2022052359号-1</a></div>
 </template>
 
 <script>

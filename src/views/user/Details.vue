@@ -48,7 +48,7 @@
           </div>
           <div class="form-group">
             <div class="col-lg-offset-1 col-sm-10 col-lg-5">
-              <button type="submit" class="btn bg-blue save-btn">保存</button>
+              <button disabled type="submit" class="btn bg-blue save-btn">保存</button>
             </div>
           </div>
         </form>

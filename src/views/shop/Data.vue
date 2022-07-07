@@ -3,7 +3,8 @@
       <div class="section1">
         <div>
           <h1>闲鸭源码市场，精选优质模板，软件代售服务！</h1>
-          <p>闲鸭qq交流群：806589636</p>
+<!--          <p>闲鸭qq交流群：806589636</p>-->
+          <p>10000+网页模板可供选择!!!</p>
         </div>
       </div>
       <div class="section2">
@@ -63,10 +64,7 @@
                     </div>
                   </div>
                   <div class="type-tags" style="position:relative">
-                    <span v-if="item.platform_name=='网页'?true:false"><img style="margin-top:5px;" src="../../assets/images/html.png"></span>
-                    <span v-else-if="item.platform_name=='微信小程序'?true:false"><img style="margin-top: 5px;" src="../../assets/images/miniproject.png"></span>
-                    <span v-else-if="item.platform_name=='APP'?true:false"><img style="margin-top: 5px;" src="../../assets/images/app.png"></span>
-                    <span v-else-if="item.platform_name=='其他'?true:false"><img style="margin-top: 5px;" src="../../assets/images/others.png"></span>
+                    <span><img style="margin-top:5px;" :src="item.platform_picture"></span>
                     <ul style="margin-top:5px">
                       <li v-for="(item, index) in item.label">{{item}}</li>
                     </ul>
@@ -118,6 +116,10 @@ export default {
     get_codetype(){
       this.$Get('/view/codetype/find').then(res=>{
         var code_type=[]
+        code_type.push({
+          id:null,
+          codetype_name:"全部"
+        })
         for(var i=0;i<res.length;i++){
           code_type.push({
             id:res[i]._id,
@@ -133,13 +135,16 @@ export default {
     get_platform_type(){
       this.$Get("/view/platform/find").then(res=>{
         var platform_type=[]
+        platform_type.push({
+          id:null,
+          platform_name:"不限"
+        })
         for(var i=0;i<res.length;i++){
           platform_type.push({
             id:res[i]._id,
             platform_name:res[i].platform_name
           })
         }
-        //console.log(platform_type,"platform_type")
         this.platform_type=platform_type
       })
     },
@@ -147,6 +152,10 @@ export default {
     get_type(){
       this.$Get("/view/type/find").then(res=>{
         var type=[]
+        type.push({
+          id:null,
+          type_name:"不限"
+        })
         for(var i=0;i<res.length;i++){
           type.push({
             id:res[i]._id,
@@ -168,12 +177,13 @@ export default {
             objectId:object._id,
             name:object.shop_name,
             picture:object.picture,
-            price:object.price.toFixed(2),
+            price:Number(object.price).toFixed(2),
             label:object.label,
             project_introduce:object.project_introduce,
             project_display:object.project_display,
             project_experience:object.project_experience,
-            platform_name:object.platform_id.platform_name
+            platform_name:object.platform_id.platform_name,
+            platform_picture:object.platform_id.platform_picture
           })
         }
         if(shop.length>0){
@@ -190,18 +200,10 @@ export default {
       this.params.skip=0
       this.shop=[]
       if(event.swich_type=="type"){
-        if(event.index==0){
-          this.params.type_id=null
-        }else{
-          this.params.type_id=event.type_id
-        }
+        this.params.type_id=event.type_id
         this.type_currentTab=event.index
       }else if(event.swich_type=="platform_type"){
-        if(event.index==0){
-          this.params.platform_id=null
-        }else{
-          this.params.platform_id=event.platform_id
-        }
+        this.params.platform_id=event.platform_id
         this.platform_currentTab=event.index
       }else if(event.swich_type=="price_type"){
         if(event.index==0){
@@ -211,11 +213,8 @@ export default {
         }
         this.price_currentTab=event.index
       }else if(event.swich_type=="code_type"){
-        if(event.index==0){
-          this.params.codetype_id=null
-        }else{
-          this.params.codetype_id=event.codetype_id
-        }
+
+        this.params.codetype_id=event.codetype_id
         this.code_currentTab=event.index
       }
       this.get_shop()

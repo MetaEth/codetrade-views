@@ -13,7 +13,7 @@
           <input type="hidden" id="project_name" value="校园闲鸭">
           <input type="hidden" id="order_id">
           <p>价格：<b>￥{{details.price}}</b></p>
-          <p>购买后可在我的订单中下载源码</p>
+          <p>分类：{{details.type}}</p>
           <div class="type-tags">
             <span v-if="details.platform_name=='网页'?true:false" class="type-cloudcode" title="网页" ></span>
             <span v-if="details.platform_name=='微信小程序'?true:false" class="type-webapp"  title="微信小程序" ></span>
@@ -36,7 +36,8 @@
         <p class="title">项目介绍</p>
         <p v-html="details.project_introduce"></p>
       </div>
-      <div>
+      <!--   判断对象是否为空   -->
+      <div v-if="Object.keys(this.details.project_display).length != 0">
         <p class="title">项目展示</p>
         <ul>
           <li v-for="(item,index) in details.project_display">
@@ -49,9 +50,9 @@
         <ol>
           <li>
             <span>{{details.platform_name}}：</span>
-            <a class="preview_wechat" href="/uploads/attached/app/logo/20190905/58320ec1-d01c-d258-e650-5b9058e935b6.jpg"  target="_blank" title="小程序二维码">
+            <a class="preview_wechat" :href="details.project_experience" target="blank" title="小程序二维码">
               {{details.project_experience}}
-              <img v-if="false" src="../../assets/picture/58320ec1-d01c-d258-e650-5b9058e935b6.jpg" alt="" />
+              <img v-if="false" src="https://idleduck-1311335507.cos.ap-guangzhou.myqcloud.com/picture/gh_20cdfbf324d2_344.jpg" alt="" />
             </a>
           </li>
         </ol>
@@ -66,23 +67,23 @@
         </p>
         <ul>
           <li>创建帐号</li>
-<!--          <li>浏览项目</li>-->
+          <li>浏览项目</li>
           <li>购买项目</li>
-          <li>创建应用</li>
-          <li>查看详情</li>
+          <li>下载源码</li>
+          <li>测试使用</li>
         </ul>
         <ul>
           <li>（注册会员帐号）</li>
-<!--          <li>（查看项目列表）</li>-->
-          <li>（在线购买对应项目）</li>
-          <li>（完善应用相关配置）</li>
-          <li>（下载源码/产品说明书）</li>
+          <li>（查看具体项目）</li>
+          <li>（购买对应项目）</li>
+          <li>（在线下载）</li>
+          <li>（查看源码说明书）</li>
         </ul>
         <p style="height:30px"></p>
         <p>注意事项:</p>
 
         <p>1、官方已对源码进行了初步审核，有且仅保证项目可正常运行，但不保证个别功能的完善性等，购买后，均不支持退款;</p>
-        <p>2、平台将依据来保障交易的安全及买卖双方的权益;</p>
+        <p>2、如果本站部分内容侵犯您的权益，请您通过邮箱1114221011@qq.com联系，站长会立即处理;</p>
         <p>3、非平台线上交易的项目,出现任何后果均与平台无关。</p>
       </div>
     </div>
@@ -103,7 +104,19 @@ export default {
   components: { BottomNews, WebHeader},
   data(){
     return{
-      details:"",
+      details:{
+        objectId:'',
+        name:'',
+        picture:'',
+        price:'',
+        label:'',
+        project_introduce:'',
+        project_display:'',
+        project_experience:'',
+        platform_name:'',
+        is_complete:'',
+        type:''
+      },
       is_buy:false,
       shop_id:'',
       but_message:"购买",
@@ -116,7 +129,6 @@ export default {
     },
     //插入一条数据
     insert_shop(shop_data){
-      console.log(shop_data,"shop")
       this.$Get('/view/shoporder/insertOne',{shop_data}).then((res)=>{
         this.$fire({title: "提示", text: "购买成功", type: "success", timer: 3000})
         this.check_buy()
@@ -183,12 +195,10 @@ export default {
           .catch(() => {
             this.$router.push({name:'Pay',params: {type:"shopPay",shopPay_data:shop_data}})
             shop_data.payMoney=shop_data.shopMoney
-            console.log(shop_data,"shop")
             //this.$alert(`取消会员操作，前往支付${shop_data.price}`);
             //插入订单数据
             //this.insert_shop(shop_data)
             //this.$fire({title: "提示", text: "非会员购买成功", type: "success", timer: 3000})
-            console.log("OK not selected.");
           });
         return
       }
@@ -244,8 +254,10 @@ export default {
         details.project_experience=res.project_experience,
         details.platform_name=res.platform_id.platform_name,
         details.is_complete=res.is_complete,
+        details.type=res.codetype_id.codetype+'->'+res.platform_id.platform_name+'->'+res.type_id.type_name,
         this.details=details
     })
+
     //滚动了置顶
     window.scrollTo(0,0);
     this.check_buy()

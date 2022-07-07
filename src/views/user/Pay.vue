@@ -74,7 +74,7 @@ export default {
           if(data){
             this.payStatus=true
             this.codeInterval()
-            console.log(data,"支付状态")
+            // console.log(data,"支付状态")
           }else{
             console.log("未支付")
           }
@@ -82,7 +82,7 @@ export default {
         this.socket.on('socketId',socket_id=>{
           resolve(socket_id)
           this.server=socket_id
-          console.log('我的socket_id是：'+socket_id)
+          // console.log('我的socket_id是：'+socket_id)
         })
         //this.socket.connect();
       })
@@ -115,13 +115,12 @@ export default {
         if(error){
           console.log(error)
         }else{
-          console.log("success!")
+          // console.log("success!")
         }
       });
     },
    async create_order(order_id){
       var socket_id=await this.create_SocketId()
-     console.log(socket_id,"pppp")
       var payType=sessionStorage.getItem("payType")
       if(payType=="vipPay"){
         var params=JSON.parse(sessionStorage.getItem("vipPay_data"))
@@ -138,7 +137,6 @@ export default {
     }
   },
   beforeDestroy(){
-    console.log("离开了")
     //离开断开socket连接
     this.socket.disconnect()
   },
