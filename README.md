@@ -31,7 +31,7 @@ vue2 + vue-router + webpack + ES6/7 + axios
 <img src="https://files.idleduck.cn/picture/FireShot%20Webpage%20Screenshot%20%23258%20-%20%27%E9%97%B2%E9%B8%AD%E6%BA%90%E7%A0%81%27%20-%20www.idleduck.cn.png?imageMogr2/format/webp/thumbnail/!80p" width="100%"/>
 
 ##### b.后端展示
-<img src="https://files.idleduck.cn/picture/FireShot%20Webpage%20Screenshot%20%23259%20-%20%27%E9%97%B2%E9%B8%AD%E6%BA%90%E7%A0%81%E5%90%8E%E5%8F%B0%27%20-%20www.idleduck.cn.png" width="100%"  height="480px"/>
+<img src="https://files.idleduck.cn/picture/FireShot%20Webpage%20Screenshot%20%23259%20-%20%27%E9%97%B2%E9%B8%AD%E6%BA%90%E7%A0%81%E5%90%8E%E5%8F%B0%27%20-%20www.idleduck.cn.png" width="100%"/>
 
 <img src="https://files.idleduck.cn/picture/FireShot%20Webpage%20Screenshot%20%23262%20-%20%27%E9%A6%96%E9%A1%B5%20-%20%E9%97%B2%E9%B8%AD%E6%BA%90%E7%A0%81%E5%90%8E%E5%8F%B0%27%20-%20www.idleduck.cn.png" width="100%"/>
 
